@@ -1,0 +1,50 @@
+export type TrackDto = {
+  id: string;
+  name: string;
+  popularity: string;
+  duration_ms: string;
+  explicit: string;
+  artists: string;
+  id_artists: string;
+  release_date: string;
+  danceability: string;
+  energy: string;
+  key: string;
+  loudness: string;
+  mode: string;
+  speechiness: string;
+  acousticness: string;
+  instrumentalness: string;
+  liveness: string;
+  valence: string;
+  tempo: string;
+  time_signature: string;
+};
+
+const DANCEABILITY_VALUES = ['Other', 'Low', 'Medium', 'High'] as const;
+export type Danceability = (typeof DANCEABILITY_VALUES)[number];
+
+export type Track = {
+  id: string;
+  name: string;
+  popularity: string;
+  duration_ms: number;
+  explicit: string;
+  artists: string;
+  id_artists: string[];
+  release_year: number;
+  release_month: number;
+  release_day: number;
+  danceability: Danceability;
+  energy: string;
+  key: string;
+  loudness: string;
+  mode: string;
+  speechiness: string;
+  acousticness: string;
+  instrumentalness: string;
+  liveness: string;
+  valence: string;
+  tempo: string;
+  time_signature: string;
+};

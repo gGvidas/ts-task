@@ -1,0 +1,36 @@
+service: ts-task
+
+frameworkVersion: '3'
+
+configValidationMode: error
+useDotenv: true
+deprecationNotificationMode: warn:summary
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-s3-local
+  - serverless-offline
+
+provider:
+  name: aws
+
+custom:
+  s3:
+    host: localhost
+    directory: s3
+
+resources:
+  Resources:
+    S3:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: local-bucket
+# functions:
+#   s3hook:
+#     handler: ./src/s3hook.main
+#     runtime: nodejs20.x
+#     timeout: 20
+#     events:
+#       - s3:
+#           bucket: local-bucket
+#           event: s3:ObjectCreated:*

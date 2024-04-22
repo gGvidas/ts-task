@@ -1,0 +1,35 @@
+{
+  "name": "gvidas-ts-tech-task",
+  "version": "1.0.0",
+  "description": "Gvidas' Telesoftas Spotify Data Transformation and Analysis task solution",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node --experimental-specifier-resolution=node --loader=ts-node/esm src/index.ts",
+    "start-s3hook": "node --experimental-specifier-resolution=node --loader=ts-node/esm src/s3hook.ts",
+    "sls": "sls offline",
+    "docker": "docker-compose up -d",
+    "migrate": "DATABASE_URL=postgres://postgres:pass@localhost:5432/postgres node-pg-migrate up"
+  },
+  "devDependencies": {
+    "@types/json5": "^2.2.0",
+    "@types/node": "^20.12.7",
+    "@types/pg": "^8.11.5",
+    "node-pg-migrate": "^7.0.0",
+    "prettier": "^3.2.5",
+    "serverless-offline": "^13.3.4",
+    "serverless-plugin-typescript": "^2.1.5",
+    "serverless-s3-local": "^0.8.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.556.0",
+    "@aws-sdk/lib-storage": "^3.556.0",
+    "csv": "^6.3.8",
+    "csv-parser": "^3.0.0",
+    "json5": "^2.2.3",
+    "pg": "^8.11.5",
+    "serverless": "^3.38.0"
+  }
+}
